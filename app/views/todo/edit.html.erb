@@ -1,0 +1,39 @@
+<h1>Edit Task</h1>
+ 
+<%= form_with model: @todo, local: true do |form| %>
+ 
+    <% if @todo.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@todo.errors.count, "error") %> prohibited
+        this task can't be saved:
+      </h2>
+      <ul>
+        <% @todo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <p>
+      <%= form.label :title %><br>
+      <%= form.text_area :title %>
+    </p>
+   
+    <p>
+        <%= form.label :priority %><br>
+        <%= form.select :priority, [["High", "High"], ["Medium", "Medium"], ["Low", "Low"]] %>
+    </p>
+    <p>
+        <%= form.label :duedate %><br>
+        <%= form.datetime_field :duedate %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
+   
+  <% end %>
+ 
+<%= link_to 'Back', todo_index_path %>

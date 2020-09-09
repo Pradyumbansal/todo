@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyText
+  priority: MyString
+  duedate: 2020-09-09 21:48:28
+
+two:
+  title: MyText
+  priority: MyString
+  duedate: 2020-09-09 21:48:28
