@@ -3,20 +3,25 @@
 
 <%= link_to 'Add new task', new_todo_path %>
 
-<table>
+<table border=1>
     <tr>
         <th>title</th>
         <th>priority</th>
         <th>duedate</th>
-        <th colspan = "2"></th>
+        <th>show</th>
+        <th>edit</th>
+        <th>delete</th>
     </tr>
-    <% @todos.each do |todo| %>
+    <% @todo.each do |todo| %>
         <tr>
             <td><%= todo.title %></td>
             <td><%= todo.priority %></td>
             <td><%= todo.duedate %></td>
             <td><%= link_to 'Show', todo_path(todo) %></td>
             <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+            <td><%= link_to 'Destroy', todo_path(todo),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
         </tr>
     <% end %>
 </table>

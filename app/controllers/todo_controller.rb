@@ -1,6 +1,6 @@
 class TodoController < ApplicationController
     def index
-        @todos = Todolist.all
+        @todo = Todolist.all
     end
   
     def new
@@ -30,6 +30,12 @@ class TodoController < ApplicationController
           render 'edit'
         end
     end
+    def destroy
+        @todo = Todolist.find(params[:id])
+        @todo.destroy
+       
+        redirect_to todo_index_path
+      end
     private
         def todo_params
         params.require(:todo).permit(:title, :priority, :duedate)
